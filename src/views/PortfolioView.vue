@@ -143,7 +143,9 @@ function closeImageModal() {
         :class="{ hidden: isHidden }"
         @click="closeImageModal($event)"
     >
-        <img :src="imageSrc" class="w-1/3" alt="" @click.stop />
+        <div class="container">
+            <img :src="imageSrc" class="md:w-1/2 mx-auto" alt="" @click.stop />
+        </div>
     </section>
 </template>
 

@@ -16,7 +16,7 @@
                 </div>
                 <div class="w-1/3 h-1 bg-secondary"></div>
             </div>
-            <form class="md:w-3/4 mx-auto">
+            <form class="md:w-3/4 mx-auto" @submit.prevent="onSubmit">
                 <label
                     for="name"
                     class="text-primary relative top-7 left-0 transition-all duration-500"
@@ -56,7 +56,6 @@
                 <button
                     class="bg-primary hover:bg-[#bf332f] text-tertiary text-bold rounded-md py-2 px-5 cursor-pointer"
                     type="submit"
-                    @click.prevent
                 >
                     Send Message
                 </button>

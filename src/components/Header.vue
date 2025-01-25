@@ -1,15 +1,30 @@
 <script setup>
-import { ref } from "vue";
+import { onMounted, ref } from "vue";
 import { RouterLink } from "vue-router";
 
 const isHidden = ref(true);
 function toggleMenu() {
     isHidden.value = !isHidden.value;
 }
+
+const isScrolled = ref(false);
+
+onMounted(() => {
+    window.addEventListener("scroll", () => {
+        if (window.scrollY > 0) {
+            isScrolled.value = true;
+        } else {
+            isScrolled.value = false;
+        }
+    });
+});
 </script>
 
 <template lang="">
-    <header class="bg-secondary fixed top-0 left-0 w-full z-50 px-5 py-8">
+    <header
+        class="bg-secondary fixed top-0 left-0 w-full z-50 px-5 transition-all duration-500 ease-in-out shadow-md"
+        :class="[isScrolled ? 'py-5' : 'py-8']"
+    >
         <nav
             class="container flex flex-col items-start gap-7 md:flex-row md:items-center relative justify-between"
         >
